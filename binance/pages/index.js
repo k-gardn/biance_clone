@@ -1,6 +1,4 @@
-import Head from "next/head";
-import Image from "next/image";
-
-export default function Home() {
-  return <div>homepage</div>;
+function HomePage() {
+  return <h1>HomePage</h1>;
 }
+export default HomePage;
