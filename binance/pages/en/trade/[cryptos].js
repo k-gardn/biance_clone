@@ -10,6 +10,7 @@ import { nameState } from "../../../src/atoms/states";
 
 export default function Cryptos() {
   const router = useRouter();
+  console.log(router);
   const cryptos = router.query.cryptos; //param 같은 것
 
   const [testInput, setTestInput] = useRecoilState(nameState);
@@ -21,7 +22,7 @@ export default function Cryptos() {
     <>
       <h1>Test</h1>
 
-      <div>{testInput}</div>
+      {/* <div>{testInput}</div>
       <br />
       <input
         type="text"
@@ -32,7 +33,7 @@ export default function Cryptos() {
       />
       <br />
 
-      <Link href="/">Back to main</Link>
+      <Link href="/">Back to main</Link> */}
     </>
   );
 }
