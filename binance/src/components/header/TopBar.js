@@ -39,7 +39,7 @@ export default function TopBar() {
             alt="toggle"
           />
         </STToggleBox>
-        <span>Markets</span>
+        <span className="markets">Markets</span>
         <STToggleBox>
           <span>Trade</span>
           <Image
@@ -149,6 +149,9 @@ const STCoinInformation = styled.div`
   & span {
     margin-right: 5px;
     font-size: 15px;
+  }
+  .markets {
+    margin-right: 20px;
   }
 `;
 
