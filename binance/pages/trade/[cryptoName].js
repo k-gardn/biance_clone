@@ -6,13 +6,13 @@ import Image from "next/image";
 import { useState } from "react";
 import Link from "next/link";
 import { useRecoilState } from "recoil";
-import { nameState } from "../../../src/atoms/states";
+import { nameState } from "../../src/atoms/states";
 
 export default function Cryptos() {
   const router = useRouter();
   console.log(router);
   const cryptos = router.query.cryptos; //param 같은 것
-
+  console.log(cryptos);
   const [testInput, setTestInput] = useRecoilState(nameState);
 
   const updateTest = (e) => {
@@ -22,7 +22,7 @@ export default function Cryptos() {
     <>
       <h1>Test</h1>
 
-      {/* <div>{testInput}</div>
+      <div>{testInput}</div>
       <br />
       <input
         type="text"
@@ -33,7 +33,7 @@ export default function Cryptos() {
       />
       <br />
 
-      <Link href="/">Back to main</Link> */}
+      <Link href="/">Back to main</Link>
     </>
   );
 }
