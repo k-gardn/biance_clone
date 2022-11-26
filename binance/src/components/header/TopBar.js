@@ -168,6 +168,8 @@ const STToggleBox = styled.div`
       cursor: pointer;
     }
   }
+  & img {
+  }
 `;
 
 const STUserInformation = styled.div`
