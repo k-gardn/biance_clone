@@ -125,7 +125,7 @@ export default function TopBar() {
 }
 
 const STContainer = styled.div`
-  grid-area: header / header / header / header;
+  grid-area: header;
 
   display: flex;
   background-color: #fafafa;

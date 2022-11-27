@@ -6,5 +6,5 @@ export default function OrderForm() {
 
 const STOrderFormContainer = styled.div`
   border: 1px solid black;
-  grid-area: orderform / orderform / orderform / orderform;
+  grid-area: orderform;
 `;

@@ -10,5 +10,5 @@ export default function Chart() {
 
 const STChartContainer = styled.div`
   border: 1px solid red;
-  grid-area: chart / chart / chart / chart;
+  grid-area: chart;
 `;

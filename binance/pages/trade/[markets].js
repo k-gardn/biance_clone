@@ -31,15 +31,15 @@ export default function Cryptos() {
   };
   return (
     <>
+      <Left />
+      <Subheader />
       <Orderbook />
       <Chart />
-      <Subheader />
       <OrderForm />
-      <Trades />
       <Market />
+      <Trades />
       <MarketActivity />
       <MyOrder />
-      <Left />
       <Right />
     </>
   );

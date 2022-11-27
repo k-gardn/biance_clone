@@ -6,5 +6,5 @@ export default function left() {
 
 const STLeft = styled.div`
   border: 1px solid rebeccapurple;
-  grid-area: left / left / left / left;
+  grid-area: left;
 `;

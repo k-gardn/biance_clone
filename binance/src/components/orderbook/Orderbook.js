@@ -10,5 +10,5 @@ export default function Orderbook() {
 
 const STOrderBookContainer = styled.div`
   border: 1px solid blue;
-  grid-area: orderbook / orderbook / orderbook / orderbook;
+  grid-area: orderbook;
 `;

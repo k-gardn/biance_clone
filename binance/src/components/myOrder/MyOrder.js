@@ -6,5 +6,5 @@ export default function MyOrder() {
 
 const STMyOrderContainer = styled.div`
   border: 1px solid red;
-  grid-area: basictable / basictable / basictable / basictable;
+  grid-area: basictable;
 `;

@@ -7,5 +7,5 @@ export default function Market() {
 
 const STMarketContainer = styled.div`
   border: 1px solid red;
-  grid-area: market / market / market / market;
+  grid-area: market;
 `;

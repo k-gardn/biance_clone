@@ -6,5 +6,5 @@ export default function Trades() {
 
 const STTradesContainer = styled.div`
   border: 1px solid blue;
-  grid-area: trades / trades / trades / trades;
+  grid-area: trades;
 `;

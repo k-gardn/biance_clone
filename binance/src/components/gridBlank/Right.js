@@ -6,5 +6,5 @@ export default function right() {
 
 const STRightContainer = styled.div`
   border: 1px solid blue;
-  grid-area: right / right / right / right;
+  grid-area: right;
 `;

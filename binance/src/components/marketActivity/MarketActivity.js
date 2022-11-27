@@ -6,5 +6,5 @@ export default function MarketActivity() {
 
 const STMarketActivity = styled.div`
   border: 1px solid green;
-  grid-area: marketActivity / marketActivity / marketActivity / marketActivity;
+  grid-area: marketActivity;
 `;

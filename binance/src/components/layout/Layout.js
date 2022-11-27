@@ -17,7 +17,8 @@ const LayoutStyle = styled.div`
   display: grid;
   margin: 0 auto;
   max-width: 100vw;
-
+  gap: 1px;
+  background-color: rgb(238, 240, 242);
   grid-template:
     "header header header header header" minmax(64px, auto)
     "left subHeader subHeader market right" 68px
