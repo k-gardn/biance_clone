@@ -1,16 +1,17 @@
 /** @type {import('next').NextConfig} */
+
+const { i18n } = require("./next-i18next.config");
 const nextConfig = {
   reactStrictMode: true,
   // images: {
   //   domains: ["https://img.icons8.com"],
   // },
   i18n: {
-    // The locales you want to support in your app
-    locales: ["ar", "en", "fr", "nl-NL"],
-    // The default locale you want to be used when visiting a non-locale prefixed path e.g. `/hello`
-    defaultLocale: "en",
+    localeDetection: false, // 언어자동감지 - 기본값: true
   },
-  // assetPrefix: ".",
 };
 
 module.exports = nextConfig;
+module.exports = {
+  i18n,
+};

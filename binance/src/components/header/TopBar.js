@@ -125,6 +125,8 @@ export default function TopBar() {
 }
 
 const STContainer = styled.div`
+  grid-area: header / header / header / header;
+
   display: flex;
   background-color: #fafafa;
   padding: 20px 0;
@@ -140,6 +142,9 @@ const STContainer = styled.div`
       color: #cd9d27;
       cursor: pointer;
     }
+  }
+  .header {
+    grid-area: header;
   }
 `;
 
