@@ -89,7 +89,7 @@ const STTitle = styled.div`
   flex-direction: column;
   margin-left: 30px;
   padding-right: 30px;
-  border-right: 1px solid gray;
+  border-right: 1px solid rgb(238, 240, 242);
   & span {
     margin-bottom: 5px;
   }
