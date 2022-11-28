@@ -31,6 +31,13 @@ export default function Orderbook() {
         {/* </STHeaderIndexContainer> */}
         <STOrderBookList>
           <OrderBookList />
+          <STPriceBox>
+            <STNowPrice>
+              <STShowPrice>16,539.43</STShowPrice>
+              <STSubPrice>$16,544.95</STSubPrice>
+            </STNowPrice>
+            <STPriceMore>More</STPriceMore>
+          </STPriceBox>
           <OrderBookList />
         </STOrderBookList>
       </STOrderBookContainer>
@@ -39,7 +46,7 @@ export default function Orderbook() {
 }
 
 const STOrderBookContainer = styled.div`
-  /* border: 1px solid blue; */
+  border: 1px solid red;
   padding-top: 20px;
   grid-area: orderbook;
   background-color: white;
@@ -49,7 +56,6 @@ const STOrderBookContainer = styled.div`
 `;
 
 const STOrderBookHeader = styled.div`
-  border: 1px solid blue;
   display: flex;
   box-sizing: border-box;
   align-items: center;
@@ -59,7 +65,6 @@ const STOrderBookHeader = styled.div`
 const STOrderBookHeaderTips = styled.div``;
 
 const STHeaderRightBox = styled.div`
-  border: 1px solid red;
   position: absolute;
   right: 0;
   & img {
@@ -80,8 +85,38 @@ const STHeaderIndex = styled.div`
 `;
 
 const STOrderBookList = styled.div`
-  border: 1px solid red;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid blue;
 `;
 
+const STPriceBox = styled.div`
+  display: flex;
+  height: 33px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 15px;
+`;
+
+const STNowPrice = styled.div`
+  display: flex;
+  align-items: center;
+  /* margin: 0 20px; */
+`;
+
+const STPriceMore = styled.span`
+  color: rgb(112, 122, 138);
+  font-size: 12px;
+`;
+
+const STShowPrice = styled.span`
+  font-size: 20px;
+  color: red;
+  margin-right: 10px;
+`;
+
+const STSubPrice = styled.span`
+  font-size: 12px;
+`;
 const STOrderBookAsk = styled.div``;
 const STOrderBookBid = styled.div``;

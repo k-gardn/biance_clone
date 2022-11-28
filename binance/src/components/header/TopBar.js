@@ -5,6 +5,7 @@ import { useState } from "react";
 
 export default function TopBar() {
   const [menuHover, setMenuHover] = useState(false);
+  //TODO: Image 공통 컴포넌트로 빼기
   return (
     <STContainer>
       <span className="logo">BIANCE</span>
