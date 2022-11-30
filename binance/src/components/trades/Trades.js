@@ -1,9 +1,25 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useQuery } from "react-query";
 import styled from "styled-components";
 import OrderBookList from "../orderbook/OrderBookList";
 
 export default function Trades() {
   const [tabIndex, setTabIndex] = useState(0);
+
+  const orderbookList = async () => {
+    const data = await axios.get("https://jw-binance.herokuapp.com/orderbook");
+    console.log("success", data.data.data);
+    return data;
+  };
+
+  const result = useQuery([
+    {
+      queryKey: ["getOrderbook"],
+      queryFn: orderbookList,
+    },
+  ]);
+
+  const orderbook = result[0]?.data?.data;
 
   const MarketHandler = (e) => {
     e.preventDefault();
@@ -56,7 +72,11 @@ export default function Trades() {
         <span>Times</span>
       </STHeaderIndex>
       <STListBox>
-        {tabIndex === 0 ? <OrderBookList /> : beforeLogin()}
+        {tabIndex === 0 ? (
+          <OrderBookList props={orderbook} index={tabIndex} />
+        ) : (
+          beforeLogin()
+        )}
       </STListBox>
     </STTradesContainer>
   );

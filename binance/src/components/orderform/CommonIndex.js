@@ -72,7 +72,6 @@ const STHeaderContainer = styled.div`
 `;
 
 const STHeader = styled.div`
-  border: 1px solid red;
   display: flex;
   align-items: center;
   background-color: white;
