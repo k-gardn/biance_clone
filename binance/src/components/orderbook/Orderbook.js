@@ -25,7 +25,7 @@ export default function Orderbook() {
         {/* <STHeaderIndexContainer> */}
         <STHeaderIndex>
           <span>Price(BUSD)</span>
-          <span>Amount(BTC)</span>
+          <STAmount>Amount(BTC)</STAmount>
           <span>Total</span>
         </STHeaderIndex>
         {/* </STHeaderIndexContainer> */}
@@ -46,10 +46,10 @@ export default function Orderbook() {
 }
 
 const STOrderBookContainer = styled.div`
-  border: 1px solid red;
+  /* border: 1px solid red; */
   padding-top: 20px;
   grid-area: orderbook;
-  background-color: white;
+  background-color: #fafafa;
   /* min-width: max-content; */
   width: 100%;
   overflow: hidden;
@@ -76,18 +76,24 @@ const STHeaderIndexContainer = styled.div``;
 
 const STHeaderIndex = styled.div`
   display: flex;
+  position: relative;
   justify-content: space-between;
   padding: 5px 10px;
+  width: 310px;
   & span {
     color: rgb(112, 122, 138);
     font-size: 12px;
   }
 `;
+const STAmount = styled.span`
+  position: absolute;
+  left: 37%;
+`;
 
 const STOrderBookList = styled.div`
   display: flex;
   flex-direction: column;
-  border: 1px solid blue;
+  /* border: 1px solid blue; */
 `;
 
 const STPriceBox = styled.div`
@@ -112,7 +118,8 @@ const STPriceMore = styled.span`
 const STShowPrice = styled.span`
   font-size: 20px;
   color: red;
-  margin-right: 10px;
+  /* margin-right: 10px; */
+  margin: 10px 10px 15px 0;
 `;
 
 const STSubPrice = styled.span`

@@ -58,7 +58,6 @@ export default function MyOrder() {
           Open Orders(0)
         </STTabName>
       ),
-      content: <OpenOrder />,
     },
     {
       key: "OrderHistory",
@@ -70,7 +69,6 @@ export default function MyOrder() {
           Order History
         </STTabName>
       ),
-      content: <OpenOrder />,
     },
     {
       key: "TradeHistory",
@@ -82,7 +80,6 @@ export default function MyOrder() {
           Trade History
         </STTabName>
       ),
-      content: <OpenOrder />,
     },
     {
       key: "Funds",
@@ -94,7 +91,6 @@ export default function MyOrder() {
           Funds
         </STTabName>
       ),
-      content: <OpenOrder />,
     },
     {
       key: "Positions",
@@ -106,7 +102,6 @@ export default function MyOrder() {
           Positions(0)
         </STTabName>
       ),
-      content: <OpenOrder />,
     },
   ];
 

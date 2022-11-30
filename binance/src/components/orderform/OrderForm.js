@@ -1,10 +1,8 @@
 import styled from "styled-components";
+import { useState } from "react";
+
+import OrderFormHeader from "./OrderFormHeader";
 
 export default function OrderForm() {
-  return <STOrderFormContainer>OrderForm</STOrderFormContainer>;
+  return <OrderFormHeader />;
 }
-
-const STOrderFormContainer = styled.div`
-  border: 1px solid black;
-  grid-area: orderform;
-`;
