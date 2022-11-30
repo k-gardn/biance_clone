@@ -2,7 +2,7 @@ import Head from "next/head";
 import Image from "next/image";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
-import nextI18NextConfig from "../next-i18next.config.js";
+import nextI18NextConfig from "../../next-i18next.config";
 
 export const getStaticProps = async ({ locale }) => ({
   props: {
