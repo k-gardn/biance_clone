@@ -35,6 +35,11 @@ export default function Trades() {
       ),
     },
   ];
+
+  const beforeLogin = () => {
+    return <STMyTrades>Log In or Register Now to trade</STMyTrades>;
+  };
+
   console.log(tabIndex);
   return (
     <STTradesContainer>
@@ -50,7 +55,9 @@ export default function Trades() {
         <STAmount>Amount(BTC)</STAmount>
         <span>Times</span>
       </STHeaderIndex>
-      <OrderBookList />
+      <STListBox>
+        {tabIndex === 0 ? <OrderBookList /> : beforeLogin()}
+      </STListBox>
     </STTradesContainer>
   );
 }
@@ -95,7 +102,16 @@ const STHeaderIndex = styled.div`
   }
 `;
 
+const STListBox = styled.div`
+  display: flex;
+  height: 80%;
+  justify-content: center;
+  align-items: center;
+`;
+
 const STAmount = styled.span`
   position: absolute;
   left: 37%;
 `;
+
+const STMyTrades = styled.div``;

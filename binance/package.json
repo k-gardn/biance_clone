@@ -6,12 +6,14 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "server": "yarn json-server --watch data.json --port 3001"
   },
   "dependencies": {
     "@ant-design/plots": "^1.2.2",
     "axios": "^1.2.0",
     "binance-connector": "^1.0.21",
+    "cross-env": "^7.0.3",
     "eslint": "8.28.0",
     "eslint-config-next": "^13.0.5",
     "i18next": "^22.0.6",

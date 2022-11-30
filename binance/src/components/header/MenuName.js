@@ -1,17 +1,8 @@
-import Link from "next/link";
 import Image from "next/image";
 import styled from "styled-components";
 import { useState } from "react";
-import {
-  LogoDrop,
-  BuyCrypto,
-  Trade,
-  Derivatives,
-  FinancedropDown,
-  institutional,
-} from "./DropBar";
 
-export default function TopBar() {
+export default function MenuName() {
   const [menuHover, setMenuHover] = useState([
     false,
     false,
@@ -22,11 +13,22 @@ export default function TopBar() {
     false,
   ]);
   console.log(menuHover);
-
-  //TODO: Image 공통 컴포넌트로 빼기
+  const FinancedropDown = [
+    {
+      key: "1",
+      title: "Binance Card",
+      items: "Convert and pay with crypto worldwide",
+    },
+    {
+      key: "12",
+      title: "Crypto Loans",
+      items: "Get an instant loan secured by crypto assets",
+    },
+    { key: "3", title: "Binance Pay", items: "맛있다" },
+    { key: "4", title: "Binance Gift Card", items: "맛있다" },
+  ];
   return (
-    <STContainer>
-      <span className="logo">BIANCE</span>
+    <>
       <STCoinInformation>
         <STToggleBox
           onMouseOver={() => {
@@ -60,14 +62,6 @@ export default function TopBar() {
             }
             alt="toggle"
           />
-          <div className="dropDownMenu">
-            {LogoDrop.map((list) => (
-              <div className="dropContentBox" key={list.key}>
-                <div className="title">{list.title}</div>
-                <div className="content">{list.items}</div>
-              </div>
-            ))}
-          </div>
         </STToggleBox>
         <STToggleBox
           onMouseOver={() => {
@@ -92,14 +86,6 @@ export default function TopBar() {
             }
             alt="toggle"
           />
-          <div className="dropDownMenu">
-            {BuyCrypto.map((list) => (
-              <div className="dropContentBox" key={list.key}>
-                <div className="title">{list.title}</div>
-                <div className="content">{list.items}</div>
-              </div>
-            ))}
-          </div>
         </STToggleBox>
         <span className="markets">Markets</span>
         <STToggleBox
@@ -125,14 +111,6 @@ export default function TopBar() {
             }
             alt="toggle"
           />
-          <div className="dropDownMenu">
-            {Trade.map((list) => (
-              <div className="dropContentBox" key={list.key}>
-                <div className="title">{list.title}</div>
-                <div className="content">{list.items}</div>
-              </div>
-            ))}
-          </div>
         </STToggleBox>
         <STToggleBox
           onMouseOver={() => {
@@ -157,14 +135,6 @@ export default function TopBar() {
             }
             alt="toggle"
           />
-          <div className="dropDownMenu">
-            {Derivatives.map((list) => (
-              <div className="dropContentBox" key={list.key}>
-                <div className="title">{list.title}</div>
-                <div className="content">{list.items}</div>
-              </div>
-            ))}
-          </div>
         </STToggleBox>
         <STToggleBox
           onMouseOver={() => {
@@ -247,76 +217,12 @@ export default function TopBar() {
             }
             alt="toggle"
           />
-          <div className="dropDownMenu">
-            {institutional.map((list) => (
-              <div className="dropContentBox" key={list.key}>
-                <div className="title">{list.title}</div>
-                <div className="content">{list.items}</div>
-              </div>
-            ))}
-          </div>
         </STToggleBox>
         <span>Feed</span>
       </STCoinInformation>
-      <STUserInformation>
-        {/* <span>Wallet</span>
-        <span>Orders</span> */}
-        {/* <Link href={"/"}>
-          <Image
-            width={30}
-            src={require("../../../src/images/useravar.png")}
-            alt="사용자 정보"
-          />
-        </Link> */}
-        <Link href={"/login"}>
-          <span>Log In</span>
-        </Link>
-        <Link href={"/register"}>
-          <span className="register">Register</span>
-        </Link>
-        <span>Downloads</span>
-        <span>English</span>
-        <span>USD</span>
-        <Image
-          className="helpIcon"
-          width={20}
-          src={require("../../../src/images/help.png")}
-          alt="help"
-        />
-        <Image
-          className="settingIcon"
-          width={20}
-          src={require("../../../src/images/setting.png")}
-          alt="setting"
-        />
-      </STUserInformation>
-    </STContainer>
+    </>
   );
 }
-
-const STContainer = styled.div`
-  grid-area: header;
-
-  display: flex;
-  background-color: #fafafa;
-  padding: 20px 0;
-  .logo {
-    margin-right: 10px;
-    margin-left: 20px;
-    font-weight: 600;
-    font-size: larger;
-    color: #f0b909;
-  }
-  & span {
-    :hover {
-      color: #cd9d27;
-      cursor: pointer;
-    }
-  }
-  .header {
-    grid-area: header;
-  }
-`;
 
 const STCoinInformation = styled.div`
   display: flex;
@@ -377,29 +283,5 @@ const STToggleBox = styled.div`
   .content {
     font-size: 12px;
     color: gray;
-  }
-`;
-
-const STUserInformation = styled.div`
-  display: flex;
-  position: absolute;
-  right: 0;
-  & span {
-    font-size: 15px;
-
-    margin-right: 10px;
-  }
-  .register {
-    background-color: #fcd536;
-    padding: 8px;
-    border-radius: 5px;
-  }
-  .helpIcon {
-    margin-right: 15px;
-    cursor: pointer;
-  }
-  .settingIcon {
-    margin-right: 20px;
-    cursor: pointer;
   }
 `;

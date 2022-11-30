@@ -1,14 +1,9 @@
 import styled from "styled-components";
 import { useState } from "react";
-import Spot from "./Spot";
-import Cross from "./Cross";
-import Isolated from "./Isolated";
-import CommonIndex from "./CommonIndex";
-
-export default function OrderFormHeader() {
+export default function CommonIndex() {
   const [tabIndex, setTabIndex] = useState(0);
 
-  const SpotHandler = (e) => {
+  const NormalHandler = (e) => {
     e.preventDefault();
     setTabIndex(0);
   };
@@ -23,45 +18,42 @@ export default function OrderFormHeader() {
 
   const HeaderTab = [
     {
-      key: "Spot",
+      key: "Normal",
       tab: (
         <STHeaderTab
-          onClick={SpotHandler}
+          onClick={NormalHandler}
           className={tabIndex === 0 ? "select" : ""}
         >
-          <STTabTitle>Spot</STTabTitle>
+          <STTabTitle>Limit</STTabTitle>
         </STHeaderTab>
       ),
-      content: <Spot />,
+      // content: <Spot />,
     },
     {
-      key: "Cross",
+      key: "Market",
       tab: (
         <STHeaderTab
           onClick={CrossHandler}
           className={tabIndex === 1 ? "select" : ""}
         >
-          <STTabTitle>Cross</STTabTitle>
-          <STX className={tabIndex === 1 ? "x" : ""}> 3x</STX>
+          <STTabTitle>Market</STTabTitle>
         </STHeaderTab>
       ),
-      content: <Cross />,
+      // content: <Cross />,
     },
     {
-      key: "Isolated",
+      key: "limit",
       tab: (
         <STHeaderTab
           onClick={IsolatedHandler}
           className={tabIndex === 2 ? "select" : ""}
         >
-          <STTabTitle>Isolated</STTabTitle>
-          <STX className={tabIndex === 2 ? "x" : ""}> 10x</STX>
+          <STTabTitle>Stop-limit</STTabTitle>
         </STHeaderTab>
       ),
-      content: <Isolated />,
+      // content: <Isolated />,
     },
   ];
-
   return (
     <STHeaderContainer>
       <STHeader>
@@ -69,8 +61,7 @@ export default function OrderFormHeader() {
           return <STTabBox key={item.key}>{item.tab}</STTabBox>;
         })}
       </STHeader>
-      <CommonIndex />
-      {/* {HeaderTab[tabIndex].content} */}
+      {HeaderTab[tabIndex].content}
     </STHeaderContainer>
   );
 }
@@ -81,48 +72,25 @@ const STHeaderContainer = styled.div`
 `;
 
 const STHeader = styled.div`
+  border: 1px solid red;
   display: flex;
   align-items: center;
-  background-color: #fafafa;
-  height: 55px;
+  background-color: white;
+  height: 50px;
+  padding-left: 15px;
 `;
 
 const STTabBox = styled.span`
   display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 110px;
-  height: 100%;
+  width: 70px;
 `;
-
 const STHeaderTab = styled.span`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 14px;
-  font-weight: 500;
+  font-size: 15px;
   cursor: pointer;
-  color: #707a8a;
-  height: 100%;
-  width: 100%;
-  border-bottom: 1px solid #eaecef;
+  color: gray;
   &.select {
-    height: 100%;
-    color: black;
-    border-top: 2px solid #f0b909;
-    border-bottom: transparent;
-    border-right: 1px solid #eaecef;
-    border-left: 1px solid #eaecef;
-    background-color: white;
+    color: #cb9a1b;
   }
 `;
 
 const STTabTitle = styled.span``;
-
-const STX = styled.span`
-  color: #707a8a;
-  cursor: pointer;
-  &.x {
-    color: #c99400;
-  }
-`;

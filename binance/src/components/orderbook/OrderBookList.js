@@ -1,73 +1,73 @@
-import { useState } from "react";
-import { useQuery } from "react-query";
+import React from "react";
 import styled from "styled-components";
-import axios from "axios";
+import OrderBookItem from "./OrderBookItem";
 
-export default function OrderBookList() {
-  const [list, setList] = useState();
+export default function OrderBookList(props) {
+  const list = props.props;
+  const index = props.index;
+  console.log("list", list);
+  console.log("index", index);
 
-  const getList = async () => {
-    const data = await axios.get("http://localhost:3001/trades");
-    console.log("success", data?.data);
-    return data?.data;
+  const nowPrice = (index) => {
+    return (
+      <STPriceBox>
+        <STNowPrice>
+          <STShowPrice>16,539.43</STShowPrice>
+          <STSubPrice>$16,544.95</STSubPrice>
+        </STNowPrice>
+        <STPriceMore>More</STPriceMore>
+      </STPriceBox>
+    );
   };
-
-  const { data, isError, isLoading } = useQuery({
-    queryKey: ["getData"],
-    queryFn: getList,
-  });
-  console.log("data", data);
-  //   useEffect(() => {
-
-  // }, []);
-
   return (
-    <STListContainer>
-      {data?.map((el) => {
-        return (
-          <STListBox key={el}>
-            <STPrice>{el?.price}</STPrice>
-            <STAmount>{el?.amount}</STAmount>
-            <STTotal>{el?.total}</STTotal>
-          </STListBox>
-        );
-      })}
-    </STListContainer>
+    <>
+      {index === 1 ? nowPrice(index) : null}
+
+      <StyledListContainer>
+        {list?.map((item) => {
+          return <OrderBookItem item={item} key={item.id} index={index} />;
+        })}
+      </StyledListContainer>
+      {index === 2 ? nowPrice(index) : null}
+    </>
   );
 }
 
-const STListContainer = styled.div`
-  /* border: 1px solid black; */
-  display: flex;
-  flex-direction: column;
+const StyledListContainer = styled.div`
+  /* border: 1px solid blue; */
+  /* margin-top: 20px; */
+  /* margin-bottom: 80px; */
+  animation: fadein 0.8s;
 `;
-const STListBox = styled.div`
+
+const STPriceBox = styled.div`
   display: flex;
-  position: relative;
-  width: 320px;
+  height: 33px;
+  align-items: center;
   justify-content: space-between;
-  margin-bottom: 5px;
-  padding: 0 10px;
+  padding: 0 15px;
 `;
 
-const STPrice = styled.span`
-  width: 20%;
-  font-size: 12px;
-  text-align: right;
+const STNowPrice = styled.div`
+  display: flex;
+  align-items: center;
+  /* margin: 0 20px; */
 `;
 
-const STAmount = styled.span`
+const STPriceMore = styled.span`
+  color: rgb(112, 122, 138);
   font-size: 12px;
-  text-align: right;
-  width: 20%;
-  position: absolute;
-  left: 40%;
 `;
-const STTotal = styled.span`
-  text-align: right;
 
-  font-size: 12px;
-  width: 30%;
-  position: absolute;
-  right: 15px;
+const STShowPrice = styled.span`
+  font-size: 20px;
+  color: red;
+  /* margin-right: 10px; */
+  margin: 10px 10px 15px 0;
 `;
+
+const STSubPrice = styled.span`
+  font-size: 12px;
+`;
+const STOrderBookAsk = styled.div``;
+const STOrderBookBid = styled.div``;

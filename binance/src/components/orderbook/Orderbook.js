@@ -1,19 +1,113 @@
 import Image from "next/image";
 import styled from "styled-components";
 import OrderBookList from "./OrderBookList";
+import { useState, useEffect } from "react";
+import { useQuery, useQueries } from "react-query";
+import axios from "axios";
 
 export default function Orderbook() {
+  const [tabIndex, setTabIndex] = useState(0);
+
+  const orderbookList = async () => {
+    const data = await axios.get("http://localhost:3001/orderbook");
+    console.log("success", data.data.data);
+    return data;
+  };
+  const sellList = async () => {
+    const data = await axios.get("http://localhost:3001/sell");
+    console.log("success", data);
+    return data;
+  };
+  const buyList = async () => {
+    const data = await axios.get("http://localhost:3001/buy");
+    console.log("success", data);
+    return data;
+  };
+
+  const result = useQueries([
+    {
+      queryKey: ["getOrderbook"],
+      queryFn: orderbookList,
+    },
+    {
+      queryKey: ["getSell"],
+      queryFn: sellList,
+    },
+    {
+      queryKey: ["getBuy"],
+      queryFn: buyList,
+    },
+  ]);
+
+  useEffect(() => {
+    console.log("result", result); // [{rune 정보, data: [], isSucces: true ...}, {spell 정보, data: [], isSucces: true ...}]
+    // console.log("첫번째", result[0]?.data?.data);
+    // console.log("두번째", result[1]?.data?.data);
+    // console.log("세번째", result[2]?.data?.data);
+    const loadingFinishAll = result.some((result) => result.isLoading);
+    console.log(loadingFinishAll); // loadingFinishAll이 false이면 최종 완료
+  }, [result]);
+
+  const orderbook = result[0]?.data?.data;
+  const sell = result[1]?.data?.data;
+  const buy = result[2]?.data?.data;
+
+  console.log("첫번째", orderbook);
+  console.log("두번째", sell);
+  console.log("세번째", buy);
+
+  const commonList = (tabIndex) => {
+    switch (tabIndex) {
+      case 0:
+        return <OrderBookList props={orderbook} index={tabIndex} />;
+      case 1:
+        return <OrderBookList props={sell} index={tabIndex} />;
+      case 2:
+        return <OrderBookList props={buy} index={tabIndex} />;
+      default:
+        return;
+    }
+  };
+
+  const OrderbookHandler = (e) => {
+    e.preventDefault();
+    setTabIndex(0);
+  };
+  const SellHandler = (e) => {
+    e.preventDefault();
+    setTabIndex(1);
+  };
+  const BuyHandler = (e) => {
+    e.preventDefault();
+    setTabIndex(2);
+  };
+
   return (
     <>
       <STOrderBookContainer>
         <STOrderBookHeader>
           <STOrderBookHeaderTips>
-            <span>tap1</span>
-            <span>tap2</span>
-            <span>tap3</span>
+            <STOrderBook
+              className={tabIndex === 0 ? "select" : ""}
+              onClick={OrderbookHandler}
+            >
+              Orderbook
+            </STOrderBook>
+            <STSell
+              className={tabIndex === 1 ? "select" : ""}
+              onClick={SellHandler}
+            >
+              Sell Order
+            </STSell>
+            <STBuy
+              className={tabIndex === 2 ? "select" : ""}
+              onClick={BuyHandler}
+            >
+              Buy Order
+            </STBuy>
           </STOrderBookHeaderTips>
           <STHeaderRightBox>
-            <span>0.1</span>
+            {/* <span>0.1</span> */}
             <Image
               className="dot3"
               width={20}
@@ -30,14 +124,8 @@ export default function Orderbook() {
         </STHeaderIndex>
         {/* </STHeaderIndexContainer> */}
         <STOrderBookList>
-          <OrderBookList />
-          <STPriceBox>
-            <STNowPrice>
-              <STShowPrice>16,539.43</STShowPrice>
-              <STSubPrice>$16,544.95</STSubPrice>
-            </STNowPrice>
-            <STPriceMore>More</STPriceMore>
-          </STPriceBox>
+          {commonList(tabIndex)}
+          {/* <OrderBookList /> */}
           <OrderBookList />
         </STOrderBookList>
       </STOrderBookContainer>
@@ -62,7 +150,20 @@ const STOrderBookHeader = styled.div`
   position: relative;
 `;
 
-const STOrderBookHeaderTips = styled.div``;
+const STOrderBookHeaderTips = styled.div`
+  margin-bottom: 10px;
+  & span {
+    font-size: 12px;
+    cursor: pointer;
+    margin: 10px;
+    &.select {
+      color: #cb9a1b;
+    }
+  }
+`;
+const STOrderBook = styled.span``;
+const STSell = styled.span``;
+const STBuy = styled.span``;
 
 const STHeaderRightBox = styled.div`
   position: absolute;
@@ -95,35 +196,3 @@ const STOrderBookList = styled.div`
   flex-direction: column;
   /* border: 1px solid blue; */
 `;
-
-const STPriceBox = styled.div`
-  display: flex;
-  height: 33px;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 15px;
-`;
-
-const STNowPrice = styled.div`
-  display: flex;
-  align-items: center;
-  /* margin: 0 20px; */
-`;
-
-const STPriceMore = styled.span`
-  color: rgb(112, 122, 138);
-  font-size: 12px;
-`;
-
-const STShowPrice = styled.span`
-  font-size: 20px;
-  color: red;
-  /* margin-right: 10px; */
-  margin: 10px 10px 15px 0;
-`;
-
-const STSubPrice = styled.span`
-  font-size: 12px;
-`;
-const STOrderBookAsk = styled.div``;
-const STOrderBookBid = styled.div``;

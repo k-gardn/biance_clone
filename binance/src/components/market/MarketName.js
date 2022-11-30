@@ -168,18 +168,11 @@ const STMyOrderHeader = styled.div`
 `;
 
 const STTabNameBox = styled.span`
-  /* border: 1px solid red; */
-
-  /* position: relative; */
   &.star {
     position: absolute;
     left: 0;
     top: 30px;
     margin-right: 10px;
-    /* border: 1px solid black;
-
-  display: flex;
-  flex-direction: column; */
   }
 `;
 const STToggleBox = styled.div``;

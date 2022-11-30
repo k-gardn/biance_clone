@@ -10,7 +10,7 @@ export default function DemoStock() {
   }, []);
 
   const asyncFetch = () => {
-    fetch("http://localhost:3001/graph")
+    fetch("http://localhost:3001/graph2")
       .then((response) => response.json())
       .then((json) => setData(json))
       .catch((error) => {

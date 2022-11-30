@@ -7,9 +7,26 @@ import MarketName from "./MarketName";
 export default function Market() {
   const [submitData, setSubmitData] = useState("");
 
+  const goSearch = (e) => {
+    e.preventDefault();
+    if (submitData === "") {
+      Swal.fire({
+        title: "검색 키워드를 입력해주세요!",
+        icon: "warning",
+        confirmButtonColor: "rgb(71, 181, 255)",
+        confirmButtonText: "확인",
+      }).then((result) => {
+        if (result.value) {
+        }
+      });
+    } else {
+      navigate(`/searchItems/${submitData}`);
+    }
+  };
+
   return (
     <STMarketContainer>
-      <STSearchBox>
+      <STSearchBox onSubmit={(e) => goSearch(e)}>
         <Image
           className="search"
           width={20}
