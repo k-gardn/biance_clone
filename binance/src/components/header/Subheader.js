@@ -77,7 +77,7 @@ export default function Subheader() {
 
 const STSubHeaderContainer = styled.div`
   /* border: 1px solid purple; */
-  background-color: white;
+  background-color: #fafafa;
   grid-area: subHeader;
   display: flex;
   align-items: center;

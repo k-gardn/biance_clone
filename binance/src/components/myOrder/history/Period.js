@@ -1,36 +1,73 @@
-import React from "react";
+import { useState } from "react";
 import styled from "styled-components";
 
 export default function Period() {
-  // const HeaderTab = [
-  //   {
-  //     key: "Market",
-  //     tab: (
-  //       <span
-  //         className={tabIndex === 0 ? "select" : ""}
-  //         onClick={MarketHandler}
-  //       >
-  //         Market Trades
-  //       </span>
-  //     ),
-  //   },
-  //   {
-  //     key: "Mine",
-  //     tab: (
-  //       <span className={tabIndex === 1 ? "select" : ""} onClick={MyHandler}>
-  //         My Trades
-  //       </span>
-  //     ),
-  //   },
-  // ];
+  const [tabIndex, setTabIndex] = useState(0);
+
+  const DayHandler = (e) => {
+    e.preventDefault();
+    setTabIndex(0);
+  };
+  const WeekHandler = (e) => {
+    e.preventDefault();
+    setTabIndex(1);
+  };
+  const Month1Handler = (e) => {
+    e.preventDefault();
+    setTabIndex(2);
+  };
+  const Month3Handler = (e) => {
+    e.preventDefault();
+    setTabIndex(3);
+  };
+
+  const PeriodTab = [
+    {
+      key: "Day",
+      tab: (
+        <span className={tabIndex === 0 ? "select" : ""} onClick={DayHandler}>
+          1 Day
+        </span>
+      ),
+    },
+    {
+      key: "Week",
+      tab: (
+        <span className={tabIndex === 1 ? "select" : ""} onClick={WeekHandler}>
+          1 Week
+        </span>
+      ),
+    },
+    {
+      key: "Month1",
+      tab: (
+        <span
+          className={tabIndex === 2 ? "select" : ""}
+          onClick={Month1Handler}
+        >
+          1 Month
+        </span>
+      ),
+    },
+    {
+      key: "Month",
+      tab: (
+        <span
+          className={tabIndex === 3 ? "select" : ""}
+          onClick={Month3Handler}
+        >
+          3 Month
+        </span>
+      ),
+    },
+  ];
 
   return (
     <STPeriodContainer>
       <STPeriod>
-        <span>1 Day</span>
-        <span>1 Week</span>
-        <span>1 Month</span>
-        <span>3 Month</span>
+        {PeriodTab.map((item) => {
+          return <span key={item.key}>{item.tab}</span>;
+        })}
       </STPeriod>
       <div>
         <span>Time</span>
@@ -54,15 +91,33 @@ const STPeriodContainer = styled.div`
   }
 `;
 
-const STPeriod = styled.div``;
+const STPeriod = styled.div`
+  cursor: pointer;
+  & span {
+    margin-right: 15px;
+    &.select {
+      background-color: #eaecef;
+      padding: 4px;
+      color: black;
+      font-weight: 500;
+    }
+  }
+`;
 
 const STSearch = styled.button`
   background-color: white;
   border: transparent;
   margin-right: 10px;
+  padding: 5px;
+  cursor: pointer;
 `;
 
 const STReset = styled.button`
   background-color: #eaecef;
   border-color: transparent;
+  cursor: pointer;
+  color: gray;
+  :hover {
+    background-color: #d5d9dd;
+  }
 `;

@@ -78,7 +78,6 @@ const STGraphBox = styled.div`
 `;
 
 const STMarginTrading = styled.div`
-  border: 1px solid red;
   display: flex;
   justify-content: space-between;
   width: 100%;
@@ -91,6 +90,9 @@ const STMarginTradingLeftBox = styled.span`
   }
   .steps {
     font-weight: 500;
+  }
+  .Collaterals {
+    color: #c99400;
   }
 `;
 
