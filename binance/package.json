@@ -9,10 +9,24 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@ant-design/plots": "^1.2.2",
+    "axios": "^1.2.0",
     "eslint": "8.28.0",
-    "eslint-config-next": "13.0.4",
-    "next": "13.0.4",
-    "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "eslint-config-next": "^13.0.5",
+    "i18next": "^22.0.6",
+    "i18next-icu": "^2.0.3",
+    "mobx": "^6.7.0",
+    "mobx-react": "^7.6.0",
+    "next": "^13.0.5",
+    "next-i18next": "^13.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-i18next": "^12.0.0",
+    "react-intl": "^6.2.1",
+    "recoil": "^0.7.6",
+    "styled-components": "^5.3.6"
+  },
+  "devDependencies": {
+    "babel-plugin-styled-components": "^2.0.7"
   }
 }
