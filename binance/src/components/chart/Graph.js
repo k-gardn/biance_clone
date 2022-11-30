@@ -10,9 +10,7 @@ export default function DemoStock() {
   }, []);
 
   const asyncFetch = () => {
-    fetch(
-      "https://gw.alipayobjects.com/os/antfincdn/qtQ9nYfYJe/stock-data.json"
-    )
+    fetch("http://localhost:3001/graph")
       .then((response) => response.json())
       .then((json) => setData(json))
       .catch((error) => {
@@ -23,7 +21,6 @@ export default function DemoStock() {
     data,
     xField: "trade_date",
     yField: ["open", "close", "high", "low"],
-    // 绿涨红跌
     fallingFill: "#ef5350",
     risingFill: "#26a69a",
   };

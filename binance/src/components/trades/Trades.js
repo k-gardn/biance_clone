@@ -47,7 +47,7 @@ export default function Trades() {
       </STTradesHeader>
       <STHeaderIndex>
         <span>Price(BUSD)</span>
-        <span>Amount(BTC)</span>
+        <STAmount>Amount(BTC)</STAmount>
         <span>Times</span>
       </STHeaderIndex>
       <OrderBookList />
@@ -65,7 +65,7 @@ const STTradesContainer = styled.div`
 `;
 
 const STTradesHeader = styled.div`
-  border: 1px solid blue;
+  /* border: 1px solid blue; */
   display: flex;
   box-sizing: border-box;
   align-items: center;
@@ -85,10 +85,17 @@ const STTradesHeaderTitle = styled.div`
 
 const STHeaderIndex = styled.div`
   display: flex;
+  position: relative;
   justify-content: space-between;
   padding: 5px 10px;
+  width: 310px;
   & span {
     color: rgb(112, 122, 138);
     font-size: 12px;
   }
+`;
+
+const STAmount = styled.span`
+  position: absolute;
+  left: 37%;
 `;
