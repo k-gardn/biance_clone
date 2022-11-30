@@ -19,6 +19,8 @@ export default function MarketName() {
         return <CommonList />;
       case 4:
         return <CommonList />;
+      case 5:
+        return <CommonList />;
       default:
         return;
     }
@@ -46,7 +48,7 @@ export default function MarketName() {
   };
   const ALTSHandler = (e) => {
     e.preventDefault();
-    setTabIndex(4);
+    setTabIndex(5);
   };
 
   const HeaderTab = [
@@ -78,7 +80,7 @@ export default function MarketName() {
       key: "Margin",
       tab: (
         <STTabName
-          className={tabIndex === 1 ? "select" : ""}
+          className={tabIndex === 0 ? "select" : ""}
           onClick={MarginHandler}
         >
           Margin
@@ -89,7 +91,7 @@ export default function MarketName() {
       key: "BUSD",
       tab: (
         <STTabName
-          className={tabIndex === 2 ? "select" : ""}
+          className={tabIndex === 1 ? "select" : ""}
           onClick={BUSDHandler}
         >
           BUSD
@@ -100,7 +102,7 @@ export default function MarketName() {
       key: "USDT",
       tab: (
         <STTabName
-          className={tabIndex === 3 ? "select" : ""}
+          className={tabIndex === 2 ? "select" : ""}
           onClick={USDTHandler}
         >
           USDT
@@ -111,7 +113,7 @@ export default function MarketName() {
       key: "BNB",
       tab: (
         <STTabName
-          className={tabIndex === 4 ? "select" : ""}
+          className={tabIndex === 3 ? "select" : ""}
           onClick={BNBHandler}
         >
           BNB
@@ -122,7 +124,7 @@ export default function MarketName() {
       key: "BTC",
       tab: (
         <STTabName
-          className={tabIndex === 5 ? "select" : ""}
+          className={tabIndex === 4 ? "select" : ""}
           onClick={BTCHandler}
         >
           BTC
@@ -133,7 +135,7 @@ export default function MarketName() {
       key: "ALTS",
       tab: (
         <STTabName
-          className={tabIndex === 6 ? "select" : ""}
+          className={tabIndex === 5 ? "select" : ""}
           onClick={ALTSHandler}
         >
           ALTS
