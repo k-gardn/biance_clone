@@ -17,8 +17,8 @@ import Trades from "../../src/components/trades/Trades";
 import Market from "../../src/components/market/Market";
 import MarketActivity from "../../src/components/marketActivity/MarketActivity";
 import MyOrder from "../../src/components/myOrder/MyOrder";
-import Left from "../../src/components/gridBlank/left";
-import Right from "../../src/components/gridBlank/right";
+import Left from "../../src/components/gridBlank/Left";
+import Right from "../../src/components/gridBlank/Right";
 export default function Cryptos() {
   const router = useRouter();
   console.log(router);
