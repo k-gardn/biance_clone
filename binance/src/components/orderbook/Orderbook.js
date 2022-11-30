@@ -9,17 +9,17 @@ export default function Orderbook() {
   const [tabIndex, setTabIndex] = useState(0);
 
   const orderbookList = async () => {
-    const data = await axios.get("http://localhost:3001/orderbook");
+    const data = await axios.get("https://jw-binance.herokuapp.com/orderbook");
     console.log("success", data.data.data);
     return data;
   };
   const sellList = async () => {
-    const data = await axios.get("http://localhost:3001/sell");
+    const data = await axios.get("https://jw-binance.herokuapp.com/sell");
     console.log("success", data);
     return data;
   };
   const buyList = async () => {
-    const data = await axios.get("http://localhost:3001/buy");
+    const data = await axios.get("https://jw-binance.herokuapp.com/buy");
     console.log("success", data);
     return data;
   };
